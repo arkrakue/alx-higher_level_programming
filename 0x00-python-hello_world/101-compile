@@ -1,0 +1,10 @@
+#!/bin/bash
+pyfile=$PYFILE
+filename=$(basename "$pyfile" .py)
+python3 -m compileall "$pyfile" -b -f -q -x '__pycache__' -x "$filename.py" -x "$filename.pyc"
+if [ $? -eq 0 ]; then
+	    echo "Compilation of $pyfile succeeded."
+    else
+	        echo "Compilation of $pyfile failed."
+fi
+
