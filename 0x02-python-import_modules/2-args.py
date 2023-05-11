@@ -8,4 +8,4 @@ elif arg_num == 0:
 else:
     print(f"{arg_num} arguments:")
 for i, arg in enumerate(sys.argv[1:]):
-    print(f'{i + 1}: {arg}')
+    print('{}: {}'.format(i + 1, arg))
