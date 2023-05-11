@@ -10,4 +10,4 @@ if __name__ == "__main__":
     else:
         print(f"{arg_num} arguments:")
     for i, arg in enumerate(argv):
-            print('{}: {}'.format(i + 1, arg))
+        print('{}: {}'.format(i + 1, arg))
