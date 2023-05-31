@@ -6,9 +6,11 @@ class Square:
     """Square class with size attribute"""
 
     def __init__(self, size=0):
-        """Square Object with size
+        """Square Object
+
             Args:
-                size(int): The size of the square
+                size (int): The size of the square
+
             Raises:
                 TypeError: If size is not an integer
                 ValueError: If size is less than 0
