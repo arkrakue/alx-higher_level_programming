@@ -2,7 +2,7 @@
 """Square Class"""
 
 class Square:
-    def __int__(self):
+    def __init__(self):
         """Square Object"""
         pass
 if __name__ == "__main__":
