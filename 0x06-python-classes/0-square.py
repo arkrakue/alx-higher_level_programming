@@ -2,6 +2,7 @@
 """Square Class"""
 
 class Square:
+    """Square Class representation"""
     def __init__(self):
         """Square Object"""
         pass
