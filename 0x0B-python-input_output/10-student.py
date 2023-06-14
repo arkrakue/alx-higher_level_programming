@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 """
-Creates a student class
+Creates a Student Class
 """
 
 
@@ -23,6 +24,8 @@ class Student:
     def to_json(self, attrs=None):
         """
         Represents of Student into json format
+        Attributes:
+            attrs (dict): A python object to convert
         Return:
             Student class as a json format
         """
@@ -30,3 +33,14 @@ class Student:
             return self.__dict__
         return {key: value for key, value in self.__dict__.items()
                 if key in attrs}
+
+    def reload_from_json(self, json):
+        """
+        Represents of Student into json format
+        Attributes:
+            attrs (dict): A python object to convert
+        Return:
+            Student class as a json format
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
