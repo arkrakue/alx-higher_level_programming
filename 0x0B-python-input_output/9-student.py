@@ -20,13 +20,11 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
+    def to_json(self):
         """
         Represents of Student into json format
         Return:
             Student class as a json format
         """
-        if attrs is None:
-            return self.__dict__
-        return {key: value for key, value in self.__dict__.items()
-                if key in attrs}
+        return {key: value for (key, value) in self.__dict__.items()
+                if key in list(self.__dict__.keys())}
