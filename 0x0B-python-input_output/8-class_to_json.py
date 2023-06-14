@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
 """
 Returns the dictionary description
 with simple data structure for JSON serialization of an object.
