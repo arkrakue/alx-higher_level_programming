@@ -18,4 +18,4 @@ def save_to_json_file(my_obj, filename):
         A file with a text in jason format
     """
     with open(filename, 'w', encoding='utf-8') as f:
-        return file.write(json.dump(my_obj))
+        json.dump(my_obj, f)
