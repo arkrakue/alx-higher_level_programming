@@ -1,6 +1,7 @@
 import unittest
 from models.square import Square
 
+
 class TestSquare(unittest.TestCase):
     def test_init(self):
         square = Square(10)
@@ -18,6 +19,6 @@ class TestSquare(unittest.TestCase):
         square = Square(10)
         self.assertEqual(square.area(), 100)
 
+
 if __name__ == '__main__':
     unittest.main()
-

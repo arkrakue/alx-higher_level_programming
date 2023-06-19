@@ -1,6 +1,7 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     def test_init(self):
         rectangle = Rectangle(10, 2)
@@ -20,6 +21,6 @@ class TestRectangle(unittest.TestCase):
         rectangle = Rectangle(10, 2)
         self.assertEqual(rectangle.area(), 20)
 
+
 if __name__ == '__main__':
     unittest.main()
-
