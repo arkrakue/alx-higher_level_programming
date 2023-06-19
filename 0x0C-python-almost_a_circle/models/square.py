@@ -25,7 +25,9 @@ class Square(Rectangle):
         """
         String for the Square
         """
-        message = "[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id, self.x, self.y, self.size)
+        message = "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
+                                                self.id, self.x,
+                                                self.y, self.size)
 
         return message
 
