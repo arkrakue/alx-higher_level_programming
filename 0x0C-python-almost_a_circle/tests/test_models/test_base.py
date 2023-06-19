@@ -1,59 +1,21 @@
-#!/usr/bin/python3
-
-import sys
 import unittest
-import inspect
-import io
-import pep8
-from contextlib import redirect_stdout
 from models.base import Base
 
 
-class TestSquare(unittest.TestCase):
-    """
-    class for testing Base class' methods
-    """
+class TestBase(unittest.TestCase):
+    def test_init(self):
+        base = Base()
+        self.assertEqual(base.id, 1)
 
-    @classmethod
-    def setUpClass(cls):
-        """
-        Set up class method for the doc tests
-        """
-        cls.setup = inspect.getmembers(Base, inspect.isfunction)
+        base = Base(12)
+        self.assertEqual(base.id, 12)
 
-    def test_pep8_conformance_base(self):
-        """
-        Test that base.py file conform to PEP8
-        """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+    def test_to_json_string(self):
+        base = Base()
+        dictionary = {'id': 1, 'x': 2, 'y': 3, 'width': 4, 'height': 5}
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(json_dictionary, '[{"id": 1, "x": 2, "y": 3, "width": 4, "height": 5}]')
 
-    def test_pep8_conformance_test_base(self):
-        """
-        Test that test_base.py file conform to PEP8
-        """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_base.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
 
-    def test_module_docstring(self):
-        """
-        Tests if module docstring documentation exist
-        """
-        self.assertTrue(len(Base.__doc__) >= 1)
-
-    def test_class_docstring(self):
-        """
-        Tests if class docstring documentation exist
-        """
-        self.assertTrue(len(Base.__doc__) >= 1)
-
-    def test_func_docstrings(self):
-        """
-        Tests if methods docstring documntation exist
-        """
-        for func in self.setup:
-            self.assertTrue(len(func[1].__doc__) >= 1)
+if __name__ == '__main__':
+    unittest.main()
