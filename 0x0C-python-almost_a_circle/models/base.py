@@ -3,6 +3,7 @@
 Creates a Base class
 '''
 import json
+import csv
 
 
 class Base:
@@ -98,3 +99,36 @@ class Base:
         except FileNotFoundError:
             return []
         return json_obj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes list_objs to a CSV file
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as f:
+            writer = csv.writer(f)
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            elif cls.__name__ == "Square":
+                fieldnames = ["id", "size", "x", "y"]
+            writer.writerow(fieldnames)
+            for obj in list_objs:
+                writer.writerow(obj.to_csv_row())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes instances from a CSV file
+        """
+        filename = cls.__name__ + ".csv"
+        instances = []
+        with open(filename, "r", newline="") as f:
+            reader = csv.reader(f)
+            header = next(reader)
+            for row in reader:
+                instance_dict = {}
+                for field, value in zip(header, row):
+                    instance_dict[field] = int(value)
+                instances.append(cls.create(**instance_dict))
+        return instances

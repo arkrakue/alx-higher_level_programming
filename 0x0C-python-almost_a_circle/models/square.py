@@ -79,3 +79,13 @@ class Square(Rectangle):
             A dictionary representation of the class
         """
         return {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
+
+    def to_csv(self):
+        """
+        Creates a list with Square attributes
+
+        Return:
+            A Square attributes' list for csv file
+        """
+        return [self.id, self.size, self.x, self.y]
+

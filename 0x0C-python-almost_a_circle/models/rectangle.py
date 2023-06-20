@@ -179,3 +179,12 @@ class Rectangle(Base):
         """
         return {'id': self.id, 'width': self.width,
                 'height': self.height, 'x': self.x, 'y': self.y}
+
+    def to_csv_row(self):
+        """
+        Creates a list with Rectangle atrributes
+
+
+        Returns a list of attribute values for serialization in CSV
+        """
+        return [self.id, self.width, self.height, self.x, self.y]
