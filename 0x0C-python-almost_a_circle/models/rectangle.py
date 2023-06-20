@@ -138,6 +138,13 @@ class Rectangle(Base):
         return message
 
     def update(self, *args, **kwargs):
+        '''
+        Updates rectangle class
+
+        Attribute:
+            args (list): inputted arguments to updating rectangle class
+            kwargs (dict): inputted arguments tu updating rectangle class
+        '''
         if args is not None and len(args) != 0:
             for i, arg in enumerate(args):
                 if i == 0:
@@ -166,6 +173,7 @@ class Rectangle(Base):
     def to_dictionary(self):
         """
         Creates a dictionary representation for Square attributes
+
         Return:
             A dictionary representation
         """
