@@ -4,6 +4,8 @@ Creates a Base class
 '''
 import json
 import csv
+import os
+import turtle
 
 
 class Base:
@@ -132,3 +134,42 @@ class Base:
                     instance_dict[field] = int(value)
                 instances.append(cls.create(**instance_dict))
         return instances
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Draws all rectangles and squares
+        in an opened window
+        """
+
+        screen = turtle.Screen()
+        screen.setup(800, 600)
+        pen = turtle.Turtle()
+
+        for rect in list_rectangles:
+            pen.penup()
+            pen.goto(rect.x, rect.y)
+            pen.pendown()
+            pen.forward(rect.width)
+            pen.left(90)
+            pen.forward(rect.height)
+            pen.left(90)
+            pen.forward(rect.width)
+            pen.left(90)
+            pen.forward(rect.height)
+            pen.left(90)
+
+        for square in list_squares:
+            pen.penup()
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            pen.forward(square.size)
+            pen.left(90)
+            pen.forward(square.size)
+            pen.left(90)
+            pen.forward(square.size)
+            pen.left(90)
+            pen.forward(square.size)
+            pen.left(90)
+
+        turtle.done()
