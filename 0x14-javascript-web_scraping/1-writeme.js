@@ -8,5 +8,4 @@ fs.writeFile(filePath, content, 'utf8', function(err) {
         console.error(err);
         return;
     }
-    console.log('File written successfully');
 });
